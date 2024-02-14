@@ -1,9 +1,11 @@
 import "./App.css";
 
+import MyResume from "./pages";
+
 function App() {
     return (
         <div className='App'>
-            <h1>My Resume v2</h1>
+            <MyResume />
         </div>
     );
 }
