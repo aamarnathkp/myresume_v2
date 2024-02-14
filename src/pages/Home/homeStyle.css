@@ -1,0 +1,24 @@
+.experience-text-container {
+    position: relative;
+    top: -42.5rem;
+    left: -8rem;
+    z-index: 3;
+}
+
+.experience-text-description {
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.experience-year-text {
+    color: #f7f7f7;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
