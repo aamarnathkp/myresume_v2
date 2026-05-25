@@ -6,4 +6,5 @@ export const PageContainer = styled.div<{ $activeTheme?: string }>`
     padding: 1rem 2rem 1rem 2rem;
     background: ${(props) =>
         props.$activeTheme ? props.$activeTheme : "f7f7f7"};
+    overflow: hidden;
 `;

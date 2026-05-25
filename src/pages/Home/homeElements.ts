@@ -8,7 +8,7 @@ export const HomeContainer = styled.div`
     align-items: center;
 `;
 
-export const HomeImageHolder = styled.div<{ $activeTheme?: string }>`
+export const HomeImageHolder = styled.div<{ $activeTheme?: string; $scale?: number }>`
     position: relative;
     z-index: 1;
 
@@ -17,6 +17,9 @@ export const HomeImageHolder = styled.div<{ $activeTheme?: string }>`
     border-radius: 30.375rem;
     background: ${(props) => props.$activeTheme};
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+    transform: scale(${(props) => props.$scale || 1});
+    transform-origin: center center;
 `;
 
 export const HomeAvathar = styled.div`
@@ -124,11 +127,13 @@ export const DesktopContainer = styled.div`
     position: relative;
     top: -28rem;
     left: 22rem;
+    white-space: nowrap;
 `;
 
 export const DesktopScreenContainer = styled.span`
     position: relative;
     left: -12rem;
+    white-space: nowrap;
 `;
 
 export const ScreenContainer = styled.span`

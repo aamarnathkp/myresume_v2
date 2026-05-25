@@ -1,8 +1,16 @@
+const getExperienceYears = (): string => {
+    const startDate = new Date("2017-07-01");
+    const currentDate = new Date();
+    const diffTime = Math.abs(currentDate.getTime() - startDate.getTime());
+    const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25));
+    return `${diffYears}+`;
+};
+
 export const homeText = {
     name: "Amarnath K P",
     greeting: "Hi, I'm",
     designation: "Web Developer",
-    experience: "6+",
+    experience: getExperienceYears(),
     expDescriptionStart: "with",
     expDescription: "years of experience",
 
@@ -16,18 +24,18 @@ export const socialHandles = [
     },
     {
         name: "instagram",
-        link: "https://www.facebook.com",
+        link: "https://www.instagram.com/aamarnathkp",
     },
     {
         name: "twitter",
-        link: "https://www.facebook.com",
+        link: "https://x.com/aamarnathkp",
     },
     {
         name: "linkedin",
-        link: "https://www.facebook.com",
+        link: "https://www.linkedin.com/in/aamarnathkp/",
     },
     {
         name: "git",
-        link: "https://www.facebook.com",
+        link: "https://github.com/aamarnathkp",
     },
 ];
