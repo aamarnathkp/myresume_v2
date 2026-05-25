@@ -22,3 +22,25 @@
     padding-left: 1rem;
     padding-right: 1rem;
 }
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .experience-text-container {
+        position: relative;
+        top: -7rem;
+        left: 0;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .experience-text-container {
+        position: relative;
+        top: -5.5rem;
+        left: 0;
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+}

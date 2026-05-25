@@ -17,7 +17,7 @@ const MyDetails = () => {
 
     return (
         <>
-            <HomeAvathar>
+            <HomeAvathar $activeTheme={`${themeContext.activeTheme?.primary}20`}>
                 <GetImage avathar={true} whichAvathar='home' />
             </HomeAvathar>
             <NameGreeting>{homeText.greeting}</NameGreeting>

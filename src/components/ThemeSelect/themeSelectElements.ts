@@ -5,4 +5,8 @@ export const ThemeSelectContainer = styled.div`
     justify-content: center;
     align-items: center;
     gap: 10rem;
+
+    @media (max-width: 768px) {
+        gap: 1.5rem;
+    }
 `;
