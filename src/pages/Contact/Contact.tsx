@@ -23,7 +23,7 @@ const ContactWrapper = styled.div`
     justify-content: space-between;
     gap: 4rem;
     height: 100%;
-    min-height: calc(100vh - 8rem);
+    min-height: auto;
 
     @media (max-width: 768px) {
         flex-direction: column-reverse;

@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { FaBriefcase } from "react-icons/fa";
+import { FaBriefcase, FaChevronDown } from "react-icons/fa";
 import { useThemeContext } from "../../providers/ThemeContextProvider";
 import { PageContainer } from "../../style/commonElements";
 
 const experienceData = [
     {
+        role: "Senior Software Engineer",
+        company: "Cognizant",
+        duration: "Feb 14 2022 - Present",
+        projectName: "Frontend Development",
+        description: "Working as a ReactJS frontend developer, designing and implementing responsive user interfaces, and ensuring high-quality application delivery.",
+        skills: ["REACT", "JAVASCRIPT", "Playwright", "NextJS", "NodeJS"]
+    },
+    {
         role: "Software Engineer",
         company: "Netstratum",
-        duration: "Jan 2018 - Present",
+        duration: "Jan 2018 - Feb 2022",
         projectName: "Contact Center Services (CCS)",
         description: "CCS is a Cloud-based Call Centre Service. Implemented queue call handling, VRQ, conditional routing, extension voice recording, scheduled reporting, and built a live dashboard to track real-time agent events.",
         skills: ["erlang", "react", "javascript", "jenkins", "git", "nginx"]
@@ -82,13 +90,13 @@ const TimelineItem = styled.div`
     justify-content: flex-end;
     position: relative;
     width: 50%;
-    padding: 1rem 2.5rem;
+    padding: 0.5rem 2rem;
     box-sizing: border-box;
 
     &:nth-child(even) {
         align-self: flex-end;
         justify-content: flex-start;
-        left: 50%;
+        left: 0;
     }
 
     &:nth-child(odd) {
@@ -101,9 +109,11 @@ const TimelineItem = styled.div`
         left: 0 !important;
         align-self: flex-start !important;
         justify-content: flex-start;
-        padding-left: 3.5rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        padding-left: 3rem;
         padding-right: 0;
-        margin-bottom: 2rem;
+        margin-bottom: 1.25rem;
     }
 `;
 
@@ -119,7 +129,7 @@ const TimelineIcon = styled.div<{ $bgColor: string }>`
     justify-content: center;
     font-size: 1.2rem;
     z-index: 2;
-    top: 1.5rem;
+    top: 1rem;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 
     /* Placement on line */
@@ -141,7 +151,7 @@ const TimelineIcon = styled.div<{ $bgColor: string }>`
     @media (max-width: 768px) {
         left: 1.5rem !important;
         transform: translateX(-50%) scale(0.85);
-        top: 1rem;
+        top: 0.5rem;
     }
 `;
 
@@ -151,9 +161,10 @@ const TimelineCard = styled.div`
     border-radius: 1rem;
     box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
     width: 100%;
-    max-width: 450px;
+    max-width: 420px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
+    cursor: pointer;
 
     &:hover {
         transform: translateY(-3px);
@@ -163,6 +174,39 @@ const TimelineCard = styled.div`
         max-width: 100%;
         padding: 1.5rem;
     }
+`;
+
+const CardHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
+const HeaderLeft = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
+
+const ExpandIcon = styled.div<{ $expanded: boolean; $color: string }>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${(props) => props.$color};
+    font-size: 1.2rem;
+    transform: rotate(${(props) => (props.$expanded ? "180deg" : "0deg")});
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    margin-left: 1rem;
+    flex-shrink: 0;
+`;
+
+const CollapsibleContent = styled.div<{ $expanded: boolean }>`
+    max-height: ${(props) => (props.$expanded ? "500px" : "0px")};
+    overflow: hidden;
+    opacity: ${(props) => (props.$expanded ? 1 : 0)};
+    transition: max-height 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                opacity 0.3s ease-in-out,
+                margin-top 0.3s ease;
+    margin-top: ${(props) => (props.$expanded ? "1rem" : "0px")};
 `;
 
 const CompanyName = styled.h3<{ $color: string }>`
@@ -221,6 +265,7 @@ const SkillTag = styled.span<{ $bgColor: string; $textColor: string }>`
 
 const Experience = () => {
     const themeContext = useThemeContext();
+    const [expandedIdx, setExpandedIdx] = useState<number | null>(0);
 
     return (
         <PageContainer id='experience'>
@@ -235,25 +280,39 @@ const Experience = () => {
                         <TimelineIcon $bgColor={themeContext.activeTheme?.primary}>
                             <FaBriefcase />
                         </TimelineIcon>
-                        <TimelineCard>
-                            <CompanyName $color={themeContext.activeTheme?.primary}>
-                                {exp.company}
-                            </CompanyName>
-                            <RoleText>{exp.role}</RoleText>
-                            <ProjectName>{exp.projectName}</ProjectName>
-                            <DurationText>{exp.duration}</DurationText>
-                            <ProjectDesc>{exp.description}</ProjectDesc>
-                            <SkillTagsContainer>
-                                {exp.skills.map((skill) => (
-                                    <SkillTag
-                                        key={skill}
-                                        $bgColor={themeContext.activeTheme?.lighter}
-                                        $textColor={themeContext.activeTheme?.dark}
-                                    >
-                                        {skill}
-                                    </SkillTag>
-                                ))}
-                            </SkillTagsContainer>
+                        <TimelineCard
+                            onClick={() => setExpandedIdx(expandedIdx === index ? null : index)}
+                        >
+                            <CardHeader>
+                                <HeaderLeft>
+                                    <CompanyName $color={themeContext.activeTheme?.primary}>
+                                        {exp.company}
+                                    </CompanyName>
+                                    <RoleText>{exp.role}</RoleText>
+                                    <DurationText>{exp.duration}</DurationText>
+                                </HeaderLeft>
+                                <ExpandIcon
+                                    $expanded={expandedIdx === index}
+                                    $color={themeContext.activeTheme?.primary}
+                                >
+                                    <FaChevronDown />
+                                </ExpandIcon>
+                            </CardHeader>
+                            <CollapsibleContent $expanded={expandedIdx === index}>
+                                <ProjectName>{exp.projectName}</ProjectName>
+                                <ProjectDesc>{exp.description}</ProjectDesc>
+                                <SkillTagsContainer>
+                                    {exp.skills.map((skill) => (
+                                        <SkillTag
+                                            key={skill}
+                                            $bgColor={themeContext.activeTheme?.lighter}
+                                            $textColor={themeContext.activeTheme?.dark}
+                                        >
+                                            {skill}
+                                        </SkillTag>
+                                    ))}
+                                </SkillTagsContainer>
+                            </CollapsibleContent>
                         </TimelineCard>
                     </TimelineItem>
                 ))}

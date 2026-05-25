@@ -1,10 +1,10 @@
 import React from "react";
 
 import { useThemeContext } from "../../providers/ThemeContextProvider";
-import { PageContainer } from "../../style/commonElements";
 import {
     HomeContainer,
     HomeImageHolder,
+    HomePageContainer,
     MyThemeSelectionContainer,
 } from "./homeElements";
 import MyDetails from "./MyDetails";
@@ -19,7 +19,7 @@ const Home = () => {
 
     console.log("Home");
     return (
-        <PageContainer>
+        <HomePageContainer>
             <HomeContainer>
                 <HomeImageHolder
                     $activeTheme={`${themeContext.activeTheme?.primary}20`}>
@@ -31,7 +31,7 @@ const Home = () => {
                     </MyThemeSelectionContainer>
                 </HomeImageHolder>
             </HomeContainer>
-        </PageContainer>
+        </HomePageContainer>
     );
 };
 

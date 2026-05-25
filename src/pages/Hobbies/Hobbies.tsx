@@ -89,7 +89,7 @@ const HobbyCard = styled.div<{ $borderColor: string; $hoverColor: string }>`
     background: #ffffff;
     border: 2px solid ${(props) => props.$borderColor};
     border-radius: 1.25rem;
-    padding: 2.5rem 1.5rem;
+    padding: 2rem 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -99,30 +99,30 @@ const HobbyCard = styled.div<{ $borderColor: string; $hoverColor: string }>`
     box-sizing: border-box;
 
     img {
-        width: 10rem;
-        height: 10rem;
+        width: 6.5rem;
+        height: 6.5rem;
         object-fit: contain;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.25rem;
         transition: transform 0.3s ease;
     }
 
     h3 {
-        font-size: 1.5rem;
+        font-size: 1.35rem;
         font-weight: 700;
         color: #2c3e50;
-        margin: 0 0 1rem 0;
+        margin: 0 0 0.75rem 0;
     }
 
     p {
-        font-size: 0.95rem;
-        line-height: 1.5;
+        font-size: 0.9rem;
+        line-height: 1.45;
         color: #5d6d7e;
         margin: 0;
     }
 
     &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+        transform: translateY(-5px);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
         border-color: ${(props) => props.$hoverColor};
 
         img {

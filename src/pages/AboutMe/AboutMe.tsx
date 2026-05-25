@@ -13,7 +13,7 @@ const AboutWrapper = styled.div`
     justify-content: space-between;
     gap: 4rem;
     height: 100%;
-    min-height: calc(100vh - 8rem);
+    min-height: auto;
 
     @media (max-width: 768px) {
         flex-direction: column-reverse;
@@ -23,7 +23,7 @@ const AboutWrapper = styled.div`
 `;
 
 const ContentColumn = styled.div`
-    flex: 1.2;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -34,15 +34,24 @@ const ContentColumn = styled.div`
 `;
 
 const ImageColumn = styled.div`
-    flex: 0.8;
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 
+    @media (max-width: 768px) {
+        display: none;
+    }
+
     img {
         max-width: 100%;
         height: auto;
-        max-height: 25rem;
+        max-height: 32rem;
+
+        @media (min-width: 769px) {
+            max-width: 32rem;
+            max-height: 32rem;
+        }
     }
 `;
 

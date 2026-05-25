@@ -98,47 +98,48 @@ const CategoryTitle = styled.h3<{ $themeColor: string }>`
 
 const SkillsGrid = styled.div`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
 
     @media (max-width: 480px) {
-        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.75rem;
     }
 `;
 
 const SkillCard = styled.div<{ $borderColor: string; $hoverColor: string }>`
     background: #ffffff;
     border: 2px solid ${(props) => props.$borderColor};
-    border-radius: 1rem;
-    padding: 1.75rem 1rem;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    gap: 1rem;
+    justify-content: flex-start;
+    gap: 0.75rem;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
     cursor: pointer;
     box-sizing: border-box;
 
     svg {
-        font-size: 3.2rem;
+        font-size: 2rem;
         color: ${(props) => props.$hoverColor};
         transition: all 0.3s ease-in-out;
+        flex-shrink: 0;
     }
 
     span {
-        font-size: 1.05rem;
+        font-size: 1rem;
         font-weight: 600;
         color: #2c3e50;
         transition: all 0.3s ease-in-out;
-        text-align: center;
+        text-align: left;
     }
 
     &:hover {
         background: ${(props) => props.$hoverColor};
-        transform: translateY(-5px);
-        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.12);
+        transform: translateY(-3px);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.1);
         border-color: ${(props) => props.$hoverColor};
 
         svg {

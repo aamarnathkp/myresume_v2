@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { PageContainer } from "../../style/commonElements";
 
 export const HomeContainer = styled.div`
     display: flex;
@@ -352,4 +353,9 @@ export const TableContainer = styled.div`
     position: relative;
     top: -7rem;
     left: -6rem;
+`;
+
+export const HomePageContainer = styled(PageContainer)`
+    height: 100vh;
+    overflow: hidden;
 `;
