@@ -12,16 +12,7 @@
     line-height: normal;
 }
 
-.experience-year-text {
-    color: #f7f7f7;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
 
-    padding-left: 1rem;
-    padding-right: 1rem;
-}
 
 @media (min-width: 481px) and (max-width: 768px) {
     .experience-text-container {
