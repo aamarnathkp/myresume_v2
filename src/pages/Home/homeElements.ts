@@ -11,7 +11,7 @@ export const HomeContainer = styled.div`
     /* Tablets and Small Phones */
     @media (max-width: 768px) {
         height: auto;
-        align-items: flex-start;
+        align-items: center;
         padding: 1rem 0;
     }
 `;
@@ -257,13 +257,40 @@ export const MySocialHandleHeading = styled.h4`
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+
+    @media (max-width: 768px) {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05rem;
+        color: #7f8c8d;
+        margin-bottom: 0.25rem;
+    }
 `;
 
-export const MySocialHandleIcons = styled.h4`
+export const MySocialHandleIcons = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+
+    svg {
+        @media (max-width: 768px) {
+            width: 2.25rem;
+            height: 2.25rem;
+        }
+    }
+
+    .shape-icon {
+        @media (max-width: 768px) {
+            top: 0.35rem;
+            left: 0.42rem;
+            font-size: 1.4rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        gap: 0.75rem;
+    }
 `;
 
 // Theme Selection
